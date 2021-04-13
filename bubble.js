@@ -1,16 +1,16 @@
-let data = require('./script.js');
+let numbers = require('./script.js');
  
 	bubbleSort = () => {
-	data = [];
+	numbers = [];
 	let count = 0;
 
-	for (let i = data.length - 1; i >= 1; i--) {
+	for (let i = numbers.length - 1; i >= 1; i--) {
 		for (let j = 0; j < i; j++) {
 			count++;
-			if (data[j + 1] < data[j]) {
+			if (numbers[j + 1] < numbers[j]) {
 				let aux = data[j + 1];
-				data[j + 1] = data[j];
-				data[j] = aux;
+				numbers[j + 1] = numbers[j];
+				numbers[j] = aux;
 			}
 		}
 	}
