@@ -5,7 +5,7 @@ const bubbleSort = require('./bubble');
 const fileName = process.argv[2];
 
 try {
-    const data = fs.readFileSync(fileName, 'utf8');
+    let data = fs.readFileSync(fileName, 'utf8');
     const numbers = data.split(' ')
     bubbleSort([numbers]);
     console.log(data);
