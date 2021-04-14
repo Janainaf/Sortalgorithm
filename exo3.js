@@ -1,31 +1,26 @@
-let exo3 = (numbers, target) => {
+exo3 = (numbers, target) => {
     let count = 0;
+    numberIndex = {};   // ok, um hash com o index dos numeros e  voila  key + value
+		for (let i = 0; i < numbers.length; i += 1) { // pra cade numero no array
+			let numberId = numbers[i] // pegando o numero de cada index
+			numberIndex[numberId] = i; // 
 
-	let numObject = {};
-	for (let i = 0; i < numbers.length; i++) {
-		let thisNum = numbers[i];
-		numObject[thisNum] = i;
-	}
-	
-	// se entendi bem, aqui ele faz um loop de 1 dos numeros a ser somado
-	// e abaixo ele faz o loop do outro numero
-
-	for (var i = 0; i < numbers.length; i++) {
-		let diff = target - arr[i];
-		if (numObject.hasOwnProperty(diff) && numObject[diff] !== i) {
-			return [i, numObject[diff]];
 		}
+		for (let i = 0; i < numbers.length; i ++) {
+			count++;
 
-	console.log(`These are the index of the numbers that added gives you the wished result - ${result}`);
-    console.log(`These are the numbers ${result}`);
-    console.log(`Tri à bulle: ${count} comparaisons`);
-	return result;
+			let difference = target - numbers[i]; 
+
+			if (numberIndex[difference]!== undefined  && numberIndex[difference] !== i) {
+
+			console.log(`These are the numbers ${numbers[i]} and ${numbers[numberIndex[difference]]} for the target ${target} `);  
+			console.log(`Bubble sort made ${count} comparisons`);
+
+			return [i, numberIndex[difference]];
+		} 
+		if (numberIndex[difference] === undefined);
+    console.log(`There are no possible combination that adds to ${target}  `);
 	}
-	
-   
 }
-console.log(exo3([2, 7, 11, 15], 9));
-
-module.exports = exo1;
-
-
+            
+	console.log(exo3([2, 5, 6, 7], 9));
