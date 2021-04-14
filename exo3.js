@@ -1,26 +1,37 @@
 exo3 = (numbers, target) => {
-    let count = 0;
-    numberIndex = {};   // ok, um hash com o index dos numeros e  voila  key + value
-		for (let i = 0; i < numbers.length; i += 1) { // pra cade numero no array
-			let numberId = numbers[i] // pegando o numero de cada index
-			numberIndex[numberId] = i; // 
+  numberHashmap = {};
+  for (let i = 0; i < numbers.length; i += 1) {
+    let valueNumber = numbers[i];
+    numberHashmap[valueNumber] = i;
+  }
 
-		}
-		for (let i = 0; i < numbers.length; i ++) {
-			count++;
+  console.log(numberHashmap);
 
-			let difference = target - numbers[i]; 
+  let count = 0;
+  let result = [];
+  for (let i = 0; i < numbers.length; i++) {
+    count++;
 
-			if (numberIndex[difference]!== undefined  && numberIndex[difference] !== i) {
+    let difference = target - numbers[i];
 
-			console.log(`These are the numbers ${numbers[i]} and ${numbers[numberIndex[difference]]} for the target ${target} `);  
-			console.log(`New alg ${count} comparisons`);
+    if (
+      numberHashmap[difference] !== undefined &&
+      numberHashmap[difference] !== i
+    ) {
+      result.push(numbers[i]);
+      console.log(
+        `These are the numbers ${numbers[i]} and ${
+          numbers[numberHashmap[difference]]
+        } for the target ${target} `
+      );
+      console.log(`New alg ${count} comparisons`);
+    }
+  }
+  if (result.length > 0) {
+    return result;
+  } else {
+    console.log(`There are no possible combination that adds to ${target}`);
+  }
+};
 
-			return [i, numberIndex[difference]];
-		} 
-		if (numberIndex[difference] === undefined);
-    console.log(`There are no possible combination that adds to ${target}  `);
-	}
-}
-            
-	console.log(exo3([2, 5, 6, 7], 9));
+exo3([2, 3], 9);
