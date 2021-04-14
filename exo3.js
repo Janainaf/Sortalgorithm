@@ -14,7 +14,7 @@ exo3 = (numbers, target) => {
 			if (numberIndex[difference]!== undefined  && numberIndex[difference] !== i) {
 
 			console.log(`These are the numbers ${numbers[i]} and ${numbers[numberIndex[difference]]} for the target ${target} `);  
-			console.log(`Bubble sort made ${count} comparisons`);
+			console.log(`New alg ${count} comparisons`);
 
 			return [i, numberIndex[difference]];
 		} 
